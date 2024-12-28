@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--&%^cpy902&b65%377lklz_t1@s^dp2(fu#s%3_7!^mq=)ep$#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['47.121.137.60', 'app7314.acapp.acwing.com.cn']
 
 
 # Application definition
@@ -124,6 +124,11 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 # 确保设置了 STATIC_ROOT（如果需要使用 collectstatic 命令）
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+# MEDIA_URL 用于访问媒体文件的 URL
+MEDIA_URL = '/media/'
+
+# MEDIA_ROOT 用于定义上传文件存储的文件系统路径
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Default primary key field type
