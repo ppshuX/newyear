@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'acapp',
 ]
 
 MIDDLEWARE = [
@@ -115,13 +116,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
+STATIC_URL = '/static/'  # 确保这个路径和模板中的 {% static %} 一致
 
-STATIC_URL = '/static/'  # 静态文件URL前缀
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',  # 确保这里包含静态文件目录
-]
+# 如果你的项目中定义了 STATICFILES_DIRS，确保包括了 static 文件夹：
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# 确保设置了 STATIC_ROOT（如果需要使用 collectstatic 命令）
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
